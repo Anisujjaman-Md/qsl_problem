@@ -1,41 +1,45 @@
-import numpy as np
-import networkx as nx
-from scipy.spatial.distance import cdist
-import matplotlib.pyplot as plt
+from itertools import permutations
 
-locations = np.array([
-    (23.8728568, 90.3984184),  # Uttara Branch
-    (23.8513998, 90.3944536),  # City Bank Airport
-    (23.8330429, 90.4092871),  # City Bank Nikunja
-    (23.8679743, 90.3840879),  # City Bank Beside Uttara Diagnostic
-    (23.8248293, 90.3551134),  # City Bank Mirpur 12
-    (23.827149, 90.4106238),   # City Bank Le Meridien
-    (23.8629078, 90.3816318),  # City Bank Shaheed Sarani
-    (23.8673789, 90.429412),   # City Bank Narayanganj
-    (23.8248938, 90.3549467),  # City Bank Pallabi
-    (23.813316, 90.4147498)    # City Bank JFP
-])
-
-dist_matrix = cdist(locations, locations, metric='euclidean')
+# Coordinates of City Bank locations
+locations = {
+    1: (23.8728568, 90.3984184, "Uttara Branch"),
+    2: (23.8513998, 90.3944536, "City Bank Airport"),
+    3: (23.8330429, 90.4092871, "City Bank Nikunja"),
+    4: (23.8679743, 90.3840879, "City Bank Beside Uttara Diagnostic"),
+    5: (23.8248293, 90.3551134, "City Bank Mirpur 12"),
+    6: (23.827149, 90.4106238, "City Bank Le Meridien"),
+    7: (23.8629078, 90.3816318, "City Bank Shaheed Sarani"),
+    8: (23.8673789, 90.429412, "City Bank Narayanganj"),
+    9: (23.8248938, 90.3549467, "City Bank Pallabi"),
+    10: (23.813316, 90.4147498, "City Bank JFP"),
+}
 
 
-G = nx.Graph()
-for i in range(len(locations)):
-    for j in range(i + 1, len(locations)):
-        G.add_edge(i, j, weight=dist_matrix[i, j])
+def calculate_distance(coord1, coord2):
+    # For simplicity, use Euclidean distance. In reality, you may need to use a more accurate formula.
+    return ((coord1[0] - coord2[0]) ** 2 + (coord1[1] - coord2[1]) ** 2) ** 0.5
 
 
-tsp_path = nx.approximation.traveling_salesman_problem(G, cycle=True)
+def total_distance(route):
+    return sum(calculate_distance(locations[route[i]], locations[route[i + 1]]) for i in range(len(route) - 1))
 
 
-optimized_locations = locations[tsp_path]
+def find_optimal_route():
+    all_routes = permutations(locations.keys())
+    best_route = min(all_routes, key=total_distance)
+    return best_route
 
 
-plt.figure(figsize=(8, 6))
-plt.plot(locations[:, 1], locations[:, 0], 'o', label='Original Order')
-plt.plot(optimized_locations[:, 1], optimized_locations[:, 0], 'o-', label='Optimized Order')
-plt.title('Optimized TSP Route')
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.legend()
-plt.show()
+if __name__ == "__main__":
+    optimal_route = find_optimal_route()
+
+    # Print the optimal route
+    print("Optimal Route:")
+    for location_id in optimal_route:
+        print(f"{locations[location_id][2]} - Lat: {locations[location_id][0]}, Lon: {locations[location_id][1]}")
+
+    # Save the optimal route to a file
+    with open("optimal_route.txt", "w") as file:
+        for location_id in optimal_route:
+            file.write(
+                f"{locations[location_id][2]} - Lat: {locations[location_id][0]}, Lon: {locations[location_id][1]}\n")

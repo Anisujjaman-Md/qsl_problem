@@ -1,0 +1,10 @@
+City Bank Narayanganj - Lat: 23.8673789, Lon: 90.429412
+Uttara Branch - Lat: 23.8728568, Lon: 90.3984184
+City Bank Beside Uttara Diagnostic - Lat: 23.8679743, Lon: 90.3840879
+City Bank Shaheed Sarani - Lat: 23.8629078, Lon: 90.3816318
+City Bank Airport - Lat: 23.8513998, Lon: 90.3944536
+City Bank Nikunja - Lat: 23.8330429, Lon: 90.4092871
+City Bank Le Meridien - Lat: 23.827149, Lon: 90.4106238
+City Bank JFP - Lat: 23.813316, Lon: 90.4147498
+City Bank Mirpur 12 - Lat: 23.8248293, Lon: 90.3551134
+City Bank Pallabi - Lat: 23.8248938, Lon: 90.3549467
