@@ -1,6 +1,5 @@
 from itertools import permutations
 
-# Coordinates of City Bank locations
 locations = {
     1: (23.8728568, 90.3984184, "Uttara Branch"),
     2: (23.8513998, 90.3944536, "City Bank Airport"),
@@ -16,7 +15,6 @@ locations = {
 
 
 def calculate_distance(coord1, coord2):
-    # For simplicity, use Euclidean distance. In reality, you may need to use a more accurate formula.
     return ((coord1[0] - coord2[0]) ** 2 + (coord1[1] - coord2[1]) ** 2) ** 0.5
 
 
@@ -33,12 +31,10 @@ def find_optimal_route():
 if __name__ == "__main__":
     optimal_route = find_optimal_route()
 
-    # Print the optimal route
     print("Optimal Route:")
     for location_id in optimal_route:
         print(f"{locations[location_id][2]} - Lat: {locations[location_id][0]}, Lon: {locations[location_id][1]}")
 
-    # Save the optimal route to a file
     with open("optimal_route.txt", "w") as file:
         for location_id in optimal_route:
             file.write(
