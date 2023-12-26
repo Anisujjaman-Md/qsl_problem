@@ -158,3 +158,39 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Optional: Uncomment the following line if you're using Yarn
+# yarn.lock
+
+# Optional: Uncomment the following line if you're using Pnpm
+# pnpm-lock.yaml
+
+# Optional: Uncomment the following line if you're using Npm
+# package-lock.json
+
+# Optional: Uncomment the following line if you're using TypeScript
+# tsconfig.json
+
+# Optional: Uncomment the following line if you're using VSCode
+# .vscode/
+
+# Environment variables
+.env
+
+# Optional: Uncomment the following line if you're using Visual Studio
+# .vs2019/
+# .vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

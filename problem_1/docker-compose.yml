@@ -1,0 +1,49 @@
+version: '3.11'
+
+services:
+  worker: &worker
+    build: .
+    volumes:
+      - static_volume:/code/static
+      - media_volume:/code/media
+      - .:/code
+    depends_on:
+      - db
+  web:
+    <<: *worker
+    container_name: ${CONTAINER}
+    command: >
+      bash -c "urlwait &&
+               pip install -r requirements.txt &&
+               python manage.py makemigrations &&
+               python manage.py migrate &&
+               python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:16.0
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-1234}
+      - POSTGRES_DB=qsl
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
+      - ADMINER_DESIGN=flat
+      - ADMINER_PLUGINS=tables-filter
+    ports:
+      - 8040:8080
+
+volumes:
+    static_volume:
+    media_volume:
+    db:

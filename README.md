@@ -60,12 +60,16 @@
 1. Configure Database
 
     ```env
-    SECRET_KEY=your_secret_key
-    DEBUG=True
-    ...
-
-    # Database configuration
-    DATABASE_URL=sqlite:///db.sqlite3
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'qsl',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+   }
     ```
 
 2. Update the `config/settings.py` file with your configuration.
