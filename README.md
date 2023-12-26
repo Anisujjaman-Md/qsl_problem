@@ -86,9 +86,6 @@ python manage.py runserver
 
 ``` 
     Registration: POST /api/register/
-    Token Obtain: POST /api/token/
-    Token Refresh: POST /api/token/refresh/
-    Token Logout: POST /api/token/logout/
     Login: POST /api/login/
 ```
 
