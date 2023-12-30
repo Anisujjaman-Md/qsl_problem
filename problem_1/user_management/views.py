@@ -26,7 +26,7 @@ class LoginView(APIView):
 
             user = AuthUser.objects.get(email=email).first()
             if user is None:
-                return Response({"path": "Login", "message": "Username and Password Wrong"},
+                return Response({"path": "Login", "message": "email or Password Wrong"},
                                 status=status.HTTP_400_BAD_REQUEST)
             if user is None or not user.check_password(password):
                 return Response({"path": "Login", "message": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
@@ -146,7 +146,7 @@ class UserProfileDetailViewSet(viewsets.ViewSet):
 
     def list(self, request):
         try:
-            user = AuthUser.objects.get(phone_number=self.request.user)
+            user = AuthUser.objects.get(email=self.request.user)
             serializer = UserLoginSerializer(user, context={'request': request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:

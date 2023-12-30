@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="782fcd44-d0b3-4891-8b78-ab14ef55da15" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qsl_ecom/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/qsl_ecom/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qsl_ecom/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/qsl_ecom/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qsl_ecom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/qsl_ecom/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_management/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_management/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
       <updated>1703519144206</updated>
       <workItem from="1703519153403" duration="1050000" />
       <workItem from="1703862186455" duration="4791000" />
-      <workItem from="1703930293126" duration="2156000" />
+      <workItem from="1703930293126" duration="4330000" />
     </task>
     <servers />
   </component>
